@@ -20,8 +20,8 @@ namespace LoanManagement.Repository
         public IEnumerable<T> Get()
             => _conn.GetAll<T>();
 
-        public T Get(Guid guid)
-            => _conn.Get<T>(guid);
+        public T Get(int id)
+            => _conn.Get<T>(id);
 
         public void Create(T entity)
             => _conn.Insert<T>(entity);

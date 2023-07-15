@@ -30,7 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.simulaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.perfisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UsersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +38,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.simulaçãoToolStripMenuItem,
-            this.perfisToolStripMenuItem});
+            this.UsersMenuStrip});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
@@ -52,11 +52,12 @@
             this.simulaçãoToolStripMenuItem.Text = "Simulação";
             this.simulaçãoToolStripMenuItem.Click += new System.EventHandler(this.simulaçãoToolStripMenuItem_Click);
             // 
-            // perfisToolStripMenuItem
+            // UsersMenuStrip
             // 
-            this.perfisToolStripMenuItem.Name = "perfisToolStripMenuItem";
-            this.perfisToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.perfisToolStripMenuItem.Text = "Perfis";
+            this.UsersMenuStrip.Name = "UsersMenuStrip";
+            this.UsersMenuStrip.Size = new System.Drawing.Size(80, 20);
+            this.UsersMenuStrip.Text = "Utilizadores";
+            this.UsersMenuStrip.Click += new System.EventHandler(this.UsersMenuStrip_Click);
             // 
             // Dashboard
             // 
@@ -82,7 +83,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem simulaçãoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem perfisToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem UsersMenuStrip;
     }
 }
 

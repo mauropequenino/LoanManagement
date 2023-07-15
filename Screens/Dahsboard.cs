@@ -22,5 +22,10 @@ namespace LoanManagement
         {
             new Simulator().ShowDialog();
         }
+
+        private void UsersMenuStrip_Click(object sender, EventArgs e)
+        {
+            new UserForm().ShowDialog();
+        }
     }
 }
