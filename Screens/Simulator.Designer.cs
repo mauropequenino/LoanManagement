@@ -39,11 +39,16 @@
             this.label4 = new System.Windows.Forms.Label();
             this.loanDateStart = new System.Windows.Forms.DateTimePicker();
             this.paymentsMapListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.CalculateBtn = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TotalPayTextBox = new System.Windows.Forms.TextBox();
+            this.totalPayTextBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.monthlyPaymentTextBox = new System.Windows.Forms.TextBox();
@@ -51,14 +56,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.rateTextBox2 = new System.Windows.Forms.TextBox();
-            this.TotalRateTextBox = new System.Windows.Forms.TextBox();
+            this.totalRateTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.CloseBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -171,6 +171,31 @@
             this.paymentsMapListView.UseCompatibleStateImageBehavior = false;
             this.paymentsMapListView.View = System.Windows.Forms.View.Details;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Data";
+            this.columnHeader1.Width = 93;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nº Prestacao";
+            this.columnHeader2.Width = 83;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Juro Mensal";
+            this.columnHeader3.Width = 97;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Valor da Prestacao";
+            this.columnHeader4.Width = 107;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Total";
+            this.columnHeader5.Width = 115;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.ClearBtn);
@@ -199,6 +224,7 @@
             this.ClearBtn.TabIndex = 11;
             this.ClearBtn.Text = "Limpar";
             this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
             // 
             // CalculateBtn
             // 
@@ -215,7 +241,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.TotalPayTextBox);
+            this.groupBox2.Controls.Add(this.totalPayTextBox);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.monthlyPaymentTextBox);
@@ -223,7 +249,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.rateTextBox2);
-            this.groupBox2.Controls.Add(this.TotalRateTextBox);
+            this.groupBox2.Controls.Add(this.totalRateTextBox);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(505, 29);
@@ -233,14 +259,14 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Detalhes";
             // 
-            // TotalPayTextBox
+            // totalPayTextBox
             // 
-            this.TotalPayTextBox.Enabled = false;
-            this.TotalPayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalPayTextBox.Location = new System.Drawing.Point(183, 145);
-            this.TotalPayTextBox.Name = "TotalPayTextBox";
-            this.TotalPayTextBox.Size = new System.Drawing.Size(201, 24);
-            this.TotalPayTextBox.TabIndex = 11;
+            this.totalPayTextBox.Enabled = false;
+            this.totalPayTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalPayTextBox.Location = new System.Drawing.Point(183, 145);
+            this.totalPayTextBox.Name = "totalPayTextBox";
+            this.totalPayTextBox.Size = new System.Drawing.Size(201, 24);
+            this.totalPayTextBox.TabIndex = 11;
             // 
             // label9
             // 
@@ -311,14 +337,14 @@
             this.rateTextBox2.Size = new System.Drawing.Size(201, 24);
             this.rateTextBox2.TabIndex = 5;
             // 
-            // TotalRateTextBox
+            // totalRateTextBox
             // 
-            this.TotalRateTextBox.Enabled = false;
-            this.TotalRateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalRateTextBox.Location = new System.Drawing.Point(182, 109);
-            this.TotalRateTextBox.Name = "TotalRateTextBox";
-            this.TotalRateTextBox.Size = new System.Drawing.Size(201, 24);
-            this.TotalRateTextBox.TabIndex = 7;
+            this.totalRateTextBox.Enabled = false;
+            this.totalRateTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalRateTextBox.Location = new System.Drawing.Point(182, 109);
+            this.totalRateTextBox.Name = "totalRateTextBox";
+            this.totalRateTextBox.Size = new System.Drawing.Size(201, 24);
+            this.totalRateTextBox.TabIndex = 7;
             // 
             // label8
             // 
@@ -330,49 +356,25 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Total de juros:";
             // 
-            // button2
+            // CloseBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Maroon;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(826, 601);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 33);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Fechar";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Data";
-            this.columnHeader1.Width = 93;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nº Prestacao";
-            this.columnHeader2.Width = 83;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Juro Mensal";
-            this.columnHeader3.Width = 97;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Valor da Prestacao";
-            this.columnHeader4.Width = 107;
-            // 
-            // columnHeader5
-            // 
-            this.columnHeader5.Text = "Total";
-            this.columnHeader5.Width = 115;
+            this.CloseBtn.BackColor = System.Drawing.Color.Maroon;
+            this.CloseBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CloseBtn.ForeColor = System.Drawing.Color.White;
+            this.CloseBtn.Location = new System.Drawing.Point(826, 601);
+            this.CloseBtn.Name = "CloseBtn";
+            this.CloseBtn.Size = new System.Drawing.Size(86, 33);
+            this.CloseBtn.TabIndex = 12;
+            this.CloseBtn.Text = "Fechar";
+            this.CloseBtn.UseVisualStyleBackColor = false;
+            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // Simulator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(947, 654);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.paymentsMapListView);
@@ -404,7 +406,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button CalculateBtn;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox TotalPayTextBox;
+        private System.Windows.Forms.TextBox totalPayTextBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox monthlyPaymentTextBox;
@@ -412,10 +414,10 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox rateTextBox2;
-        private System.Windows.Forms.TextBox TotalRateTextBox;
+        private System.Windows.Forms.TextBox totalRateTextBox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button ClearBtn;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
