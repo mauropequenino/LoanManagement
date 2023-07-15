@@ -193,7 +193,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Db.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Repository\Repository.cs" />
     <Compile Include="Screens\Dahsboard.cs">
       <SubType>Form</SubType>
     </Compile>
