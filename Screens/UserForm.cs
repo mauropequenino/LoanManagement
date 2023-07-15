@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace LoanManagement.Screens
 {
-    public partial class RoleForm : Form
+    public partial class UserForm : Form
     {
-        public RoleForm()
+        public UserForm()
         {
             InitializeComponent();
         }
