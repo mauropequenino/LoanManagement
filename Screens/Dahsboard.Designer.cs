@@ -30,13 +30,15 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.simulaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.perfisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.simulaçãoToolStripMenuItem});
+            this.simulaçãoToolStripMenuItem,
+            this.perfisToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
@@ -49,6 +51,12 @@
             this.simulaçãoToolStripMenuItem.Size = new System.Drawing.Size(74, 20);
             this.simulaçãoToolStripMenuItem.Text = "Simulação";
             this.simulaçãoToolStripMenuItem.Click += new System.EventHandler(this.simulaçãoToolStripMenuItem_Click);
+            // 
+            // perfisToolStripMenuItem
+            // 
+            this.perfisToolStripMenuItem.Name = "perfisToolStripMenuItem";
+            this.perfisToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.perfisToolStripMenuItem.Text = "Perfis";
             // 
             // Dashboard
             // 
@@ -74,6 +82,7 @@
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem simulaçãoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem perfisToolStripMenuItem;
     }
 }
 
