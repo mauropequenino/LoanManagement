@@ -7,8 +7,11 @@ Este é um mini projeto de gestão de créditos desenvolvido durante o curso da 
 O sistema de gestão de créditos permitirá a interação com quatro tipos de entidades principais:
 
 1. **Utilizadores**: Interface para gerenciar os usuários do sistema.
+
 2. **Clientes**: Interface para gerenciar os dados dos clientes que buscam obter créditos. Permitirá a inclusão, edição, exclusão e visualização dos dados dos clientes.
+
 3. **Empréstimos**: Interface para registrar e gerenciar as solicitações de empréstimos feitas pelos clientes. 
+
 4. **Pagamentos**: Interface para registrar e acompanhar os pagamentos feitos pelos clientes em relação aos empréstimos concedidos. Os usuários poderão verificar o histórico de pagamentos e actualizar as informações conforme necessário.
 
 Além das funcionalidades CRUD para cada uma dessas interfaces, o sistema também terá uma funcionalidade de backup dos dados para garantir a segurança e a integridade das informações armazenadas.
