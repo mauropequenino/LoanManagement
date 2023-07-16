@@ -31,6 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.removeBtn = new System.Windows.Forms.Button();
             this.EditBtn = new System.Windows.Forms.Button();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
@@ -39,11 +40,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.usersListView = new System.Windows.Forms.ListView();
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.removeBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,6 +83,19 @@
             this.groupBox1.TabIndex = 12;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados";
+            // 
+            // removeBtn
+            // 
+            this.removeBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.removeBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.removeBtn.ForeColor = System.Drawing.Color.Black;
+            this.removeBtn.Location = new System.Drawing.Point(420, 112);
+            this.removeBtn.Name = "removeBtn";
+            this.removeBtn.Size = new System.Drawing.Size(86, 31);
+            this.removeBtn.TabIndex = 13;
+            this.removeBtn.Text = "Remove";
+            this.removeBtn.UseVisualStyleBackColor = false;
+            this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // EditBtn
             // 
@@ -156,6 +170,7 @@
             // usersListView
             // 
             this.usersListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader5,
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -167,6 +182,12 @@
             this.usersListView.TabIndex = 13;
             this.usersListView.UseCompatibleStateImageBehavior = false;
             this.usersListView.View = System.Windows.Forms.View.Details;
+            this.usersListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.usersListView_MouseClick);
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Id";
+            this.columnHeader5.Width = 53;
             // 
             // columnHeader1
             // 
@@ -187,18 +208,6 @@
             // 
             this.columnHeader4.Text = "Data de Modificação";
             this.columnHeader4.Width = 123;
-            // 
-            // removeBtn
-            // 
-            this.removeBtn.BackColor = System.Drawing.SystemColors.Control;
-            this.removeBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.removeBtn.ForeColor = System.Drawing.Color.Black;
-            this.removeBtn.Location = new System.Drawing.Point(420, 112);
-            this.removeBtn.Name = "removeBtn";
-            this.removeBtn.Size = new System.Drawing.Size(86, 31);
-            this.removeBtn.TabIndex = 13;
-            this.removeBtn.Text = "Remove";
-            this.removeBtn.UseVisualStyleBackColor = false;
             // 
             // UserForm
             // 
@@ -235,5 +244,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.Button removeBtn;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
     }
 }

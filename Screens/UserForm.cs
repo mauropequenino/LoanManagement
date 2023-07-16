@@ -47,8 +47,6 @@ namespace LoanManagement.Screens
                 repo.Create(user);
 
                 LoadListView();
-                MessageBox.Show("Utilizador registado com sucesso", "Confirmado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
@@ -71,6 +69,12 @@ namespace LoanManagement.Screens
                 passwordTextBox.Focus();
                 return false;
             }
+            else if (passwordTextBox.Text.Trim().Count() < 5)
+            {
+                MessageBox.Show("A palavra-passe deve posuuir no minimo de 6 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                passwordTextBox.Focus();
+                return false;
+            }
 
             return true;
         }
@@ -88,6 +92,7 @@ namespace LoanManagement.Screens
 
         private void LoadListView()
         {
+            ClearFields();
             usersListView.View = View.Details;
             usersListView.FullRowSelect = true;
             usersListView.Items.Clear();
@@ -97,14 +102,48 @@ namespace LoanManagement.Screens
 
             foreach (User user in users)
             {
-                ListViewItem newItem = new ListViewItem(user.Name);
+                ListViewItem newItem = new ListViewItem(user.Id.ToString());
+                newItem.SubItems.Add(user.Name);
                 newItem.SubItems.Add(user.Password);
                 newItem.SubItems.Add(user.DateCreated.ToString());
                 newItem.SubItems.Add(user.DateModified.ToString());
 
                 usersListView.Items.Add(newItem);
             }
+        }
 
+        private void removeBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja remover o utilizador ?", "Remover", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                try
+                {
+                    if (usersListView.SelectedItems.Count > 0)
+                    {
+                        ListViewItem selectedItem = usersListView.SelectedItems[0];
+                        var id = Convert.ToInt16(selectedItem.SubItems[0].Text);
+
+                        var repo = new Repository<User>(Database.Db.Conn);
+                        var user = repo.Get(id);
+
+                        if (user != null)
+                        {
+                            repo.Delete(user);
+                            LoadListView();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao remover o utilizador. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void usersListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            userNameTextBox.Text = usersListView.SelectedItems[0].SubItems[1].Text;
+            passwordTextBox.Text = usersListView.SelectedItems[0].SubItems[2].Text;
         }
     }
 }
