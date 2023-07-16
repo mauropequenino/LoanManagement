@@ -26,6 +26,9 @@ namespace LoanManagement.Repository
         public void Create(T entity)
             => _conn.Insert<T>(entity);
 
+        public void Update(T entity)
+            => _conn.Update<T>(entity);
+
         public void Delete(T entity)
             => _conn.Delete<T>(entity);
 

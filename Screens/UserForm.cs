@@ -14,6 +14,8 @@ namespace LoanManagement.Screens
 {
     public partial class UserForm : Form
     {
+        private int id;
+        private DateTime dateCreated;
         public UserForm()
         {
             InitializeComponent();
@@ -27,14 +29,14 @@ namespace LoanManagement.Screens
                 var userName = userNameTextBox.Text.Replace(" ", "-").ToLower();
                 var password = passwordTextBox.Text;
                 var dateCreated = DateTime.UtcNow;
-                var dateModidied = DateTime.UtcNow;
+                var dateModified = DateTime.UtcNow;
 
                 Create(new User
                 {
                     Name = userName,
                     Password = password,
                     DateCreated = dateCreated,
-                    DateModified = dateModidied
+                    DateModified = dateModified
                 });
             }
         }
@@ -120,8 +122,6 @@ namespace LoanManagement.Screens
                 {
                     if (usersListView.SelectedItems.Count > 0)
                     {
-                        ListViewItem selectedItem = usersListView.SelectedItems[0];
-                        var id = Convert.ToInt16(selectedItem.SubItems[0].Text);
 
                         var repo = new Repository<User>(Database.Db.Conn);
                         var user = repo.Get(id);
@@ -142,8 +142,44 @@ namespace LoanManagement.Screens
 
         private void usersListView_MouseClick(object sender, MouseEventArgs e)
         {
+            id = Convert.ToInt16(usersListView.SelectedItems[0].SubItems[0].Text);
             userNameTextBox.Text = usersListView.SelectedItems[0].SubItems[1].Text;
             passwordTextBox.Text = usersListView.SelectedItems[0].SubItems[2].Text;
+            dateCreated = DateTime.Parse(usersListView.SelectedItems[0].SubItems[3].Text);
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            if (isFormValid())
+            {
+                var userName = userNameTextBox.Text.Replace(" ", "-").ToLower();
+                var password = passwordTextBox.Text;
+                var dateModified = DateTime.UtcNow;
+
+                Update(new User
+                {
+                    Id = id,
+                    Name = userName,
+                    Password = password,
+                    DateCreated = dateCreated,
+                    DateModified = dateModified
+                }); ; ;
+            }
+        }
+
+        private void Update(User user)
+        {
+            try
+            {
+                var repo = new Repository<User>(Database.Db.Conn);
+                repo.Update(user);
+
+                LoadListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao registar o utilizador. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
