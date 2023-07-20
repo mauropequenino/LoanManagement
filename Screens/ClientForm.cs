@@ -42,7 +42,7 @@ namespace LoanManagement.Screens
 
             if (provinceCmb.SelectedValue.ToString() == string.Empty)
             {
-                MessageBox.Show("A palavra-passe deve posuuir no minimo de 6 caracteres", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("A palavra-passe deve posuuir no minimo de 6 car", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 biTxtBox.Focus();
                 return false;
             }
