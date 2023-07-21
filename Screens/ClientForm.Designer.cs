@@ -31,6 +31,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.statusCmb = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.incomeTxtBox = new System.Windows.Forms.TextBox();
@@ -59,7 +60,6 @@
             this.idTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addressTxtBox = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -120,6 +120,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Pessoais";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(428, 116);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(25, 15);
+            this.label13.TabIndex = 34;
+            this.label13.Text = "MT";
+            // 
             // statusCmb
             // 
             this.statusCmb.FormattingEnabled = true;
@@ -169,12 +179,13 @@
             // 
             this.SaveBtn.BackColor = System.Drawing.SystemColors.Control;
             this.SaveBtn.ForeColor = System.Drawing.Color.Black;
-            this.SaveBtn.Location = new System.Drawing.Point(16, 198);
+            this.SaveBtn.Location = new System.Drawing.Point(15, 198);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(86, 30);
             this.SaveBtn.TabIndex = 10;
             this.SaveBtn.Text = "Adicionar";
             this.SaveBtn.UseVisualStyleBackColor = false;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
             // 
             // professionTxtBox
             // 
@@ -222,7 +233,9 @@
             // birthDatePicker
             // 
             this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.birthDatePicker.Location = new System.Drawing.Point(505, 71);
+            this.birthDatePicker.Location = new System.Drawing.Point(318, 72);
+            this.birthDatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.birthDatePicker.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.birthDatePicker.Name = "birthDatePicker";
             this.birthDatePicker.Size = new System.Drawing.Size(126, 22);
             this.birthDatePicker.TabIndex = 26;
@@ -233,7 +246,7 @@
             this.genreCmb.Items.AddRange(new object[] {
             "M",
             "F"});
-            this.genreCmb.Location = new System.Drawing.Point(700, 69);
+            this.genreCmb.Location = new System.Drawing.Point(67, 73);
             this.genreCmb.Name = "genreCmb";
             this.genreCmb.Size = new System.Drawing.Size(72, 24);
             this.genreCmb.TabIndex = 25;
@@ -242,7 +255,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(648, 71);
+            this.label9.Location = new System.Drawing.Point(15, 75);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 18);
             this.label9.TabIndex = 24;
@@ -252,7 +265,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(352, 74);
+            this.label8.Location = new System.Drawing.Point(165, 75);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(147, 18);
             this.label8.TabIndex = 22;
@@ -381,7 +394,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(11, 74);
+            this.label2.Location = new System.Drawing.Point(464, 74);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 18);
             this.label2.TabIndex = 4;
@@ -390,20 +403,10 @@
             // addressTxtBox
             // 
             this.addressTxtBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxtBox.Location = new System.Drawing.Point(93, 71);
+            this.addressTxtBox.Location = new System.Drawing.Point(546, 71);
             this.addressTxtBox.Name = "addressTxtBox";
             this.addressTxtBox.Size = new System.Drawing.Size(247, 24);
             this.addressTxtBox.TabIndex = 5;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(428, 116);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(25, 15);
-            this.label13.TabIndex = 34;
-            this.label13.Text = "MT";
             // 
             // ClientForm
             // 
