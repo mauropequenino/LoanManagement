@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.simulaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,7 +39,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.simulaçãoToolStripMenuItem,
-            this.UsersMenuStrip});
+            this.UsersMenuStrip,
+            this.clientesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
@@ -58,6 +60,13 @@
             this.UsersMenuStrip.Size = new System.Drawing.Size(80, 20);
             this.UsersMenuStrip.Text = "Utilizadores";
             this.UsersMenuStrip.Click += new System.EventHandler(this.UsersMenuStrip_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // Dashboard
             // 
@@ -84,6 +93,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem simulaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UsersMenuStrip;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
 

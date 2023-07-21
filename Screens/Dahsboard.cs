@@ -27,5 +27,10 @@ namespace LoanManagement
         {
             new UserForm().ShowDialog();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new ClientForm().ShowDialog();
+        }
     }
 }

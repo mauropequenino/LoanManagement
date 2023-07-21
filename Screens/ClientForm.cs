@@ -8,6 +8,8 @@ using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LoanManagement.Models;
+using LoanManagement.Repository;
 
 namespace LoanManagement.Screens
 {
@@ -16,11 +18,17 @@ namespace LoanManagement.Screens
         public ClientForm()
         {
             InitializeComponent();
+            LoadListView();
+        }
+
+        private void LoadListView()
+        {
+
         }
 
         private bool isFormValid()
         {
-            var msg = "Por favor, é obrigatório preencher este campo!";
+            var msg = "Por favor, é obrigatório preencher todos os campos!";
 
             if (idTxtBox.Text.Trim() == string.Empty)
             {
@@ -50,7 +58,7 @@ namespace LoanManagement.Screens
                 return false;
             }
 
-            if (addressTxtBox.Text.Trim() == string.Empty)
+            if (addressTxtBox.Text == string.Empty)
             {
                 MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 addressTxtBox.Focus();
@@ -64,7 +72,7 @@ namespace LoanManagement.Screens
                 return false;
             }
 
-            if (professionTxtBox.Text.Trim() == string.Empty)
+            if (professionTxtBox.Text == string.Empty)
             {
                 MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 professionTxtBox.Focus();
@@ -75,13 +83,6 @@ namespace LoanManagement.Screens
             {
                 MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 incomeTxtBox.Focus();
-                return false;
-            }
-
-            if (statusCmb.SelectedValue.ToString() == string.Empty)
-            {
-                MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                statusCmb.Focus();
                 return false;
             }
 
@@ -112,7 +113,6 @@ namespace LoanManagement.Screens
             incomeTxtBox.Clear();
             phoneNumberTxtBox.Clear();
             emailTxtBox.Clear();
-            statusCmb.Items.Clear();
             provinceCmb.Items.Clear();
             genreCmb.Items.Clear();
         }
@@ -124,7 +124,74 @@ namespace LoanManagement.Screens
                 var clientName = nameTxtBox.Text;
                 var bI = biTxtBox.Text;
                 var province = provinceCmb.SelectedValue.ToString();
-                var 
+                var genre = char.Parse(genreCmb.SelectedValue.ToString());
+                var birthDate = DateTime.Parse(birthDatePicker.Value.ToString());
+                var address = addressTxtBox.Text;
+                var profession = professionTxtBox.Text;
+                var income = decimal.Parse(incomeTxtBox.Text.Trim());
+                var phoneNumber = phoneNumberTxtBox.Text.Trim();
+                var email = professionTxtBox.Text.Trim();
+
+                Create(new Client
+                {
+                    Name = clientName,
+                    Bi = bI,
+                    Province = province,
+                    Address = address,
+                    BirthDate = birthDate,
+                    Genre = genre,
+                    Profession = profession,
+                    Income = income,
+                    PhoneNumber = phoneNumber,
+                    Email = email
+                });
+            }
+        }
+
+        private void Create(Client client)
+        {
+            try
+            {
+                var repo = new Repository<Client>(Database.Db.Conn);
+                repo.Create(client);
+
+                LoadListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao registar o cliente. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ClearBtn_Click(object sender, EventArgs e)
+        {
+            ClearFields();
+        }
+
+        private void removeBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Deseja remover o cliente ?", "Remover", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            {
+                try
+                {
+                    /*
+                    if (usersListView.SelectedItems.Count > 0)
+                    {
+                        var repo = new Repository<Client>(Database.Db.Conn);
+                        var client = repo.Get(id);
+
+                        if (client != null)
+                        {
+                            repo.Delete(client);
+                            LoadListView();
+                        }
+                    }
+                    */
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocorreu um erro ao remover o cliente. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }
