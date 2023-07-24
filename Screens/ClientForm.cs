@@ -23,19 +23,12 @@ namespace LoanManagement.Screens
 
         private void LoadListView()
         {
-
+            ClearFields();
         }
 
         private bool isFormValid()
         {
             var msg = "Por favor, é obrigatório preencher todos os campos!";
-
-            if (idTxtBox.Text.Trim() == string.Empty)
-            {
-                MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                idTxtBox.Focus();
-                return false;
-            }
 
             if (nameTxtBox.Text.Trim() == string.Empty)
             {
@@ -51,24 +44,10 @@ namespace LoanManagement.Screens
                 return false;
             }
 
-            if (provinceCmb.SelectedValue.ToString() == string.Empty)
-            {
-                MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                provinceCmb.Focus();
-                return false;
-            }
-
             if (addressTxtBox.Text == string.Empty)
             {
                 MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 addressTxtBox.Focus();
-                return false;
-            }
-
-            if (genreCmb.SelectedValue.ToString() == string.Empty)
-            {
-                MessageBox.Show(msg, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                genreCmb.Focus();
                 return false;
             }
 
@@ -123,8 +102,8 @@ namespace LoanManagement.Screens
             {
                 var clientName = nameTxtBox.Text;
                 var bI = biTxtBox.Text;
-                var province = provinceCmb.SelectedValue.ToString();
-                var genre = char.Parse(genreCmb.SelectedValue.ToString());
+                var province = provinceCmb.SelectedItem.ToString();
+                var genre = char.Parse(genreCmb.SelectedItem.ToString());
                 var birthDate = DateTime.Parse(birthDatePicker.Value.ToString());
                 var address = addressTxtBox.Text;
                 var profession = professionTxtBox.Text;
@@ -156,6 +135,9 @@ namespace LoanManagement.Screens
                 repo.Create(client);
 
                 LoadListView();
+
+                MessageBox.Show("Registo efectuado com sucesso! " + ex.Message, "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             }
             catch (Exception ex)
             {
