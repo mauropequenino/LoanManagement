@@ -160,11 +160,6 @@ namespace LoanManagement.Screens
                 repo.Create(client);
 
                 LoadListView();
-
-                ClearFields();
-
-                MessageBox.Show("Registo efectuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
             }
             catch (Exception ex)
             {
