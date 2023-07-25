@@ -71,6 +71,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader12 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -436,6 +437,7 @@
             this.columnHeader5,
             this.columnHeader6,
             this.columnHeader7,
+            this.columnHeader12,
             this.columnHeader8,
             this.columnHeader9,
             this.columnHeader10});
@@ -458,7 +460,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Bi";
+            this.columnHeader3.Text = "Bilhete de Identidade";
             // 
             // columnHeader4
             // 
@@ -487,6 +489,10 @@
             // columnHeader10
             // 
             this.columnHeader10.Text = "Email";
+            // 
+            // columnHeader12
+            // 
+            this.columnHeader12.Text = "Profissão";
             // 
             // ClientForm
             // 
@@ -553,5 +559,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader9;
         private System.Windows.Forms.ColumnHeader columnHeader10;
+        private System.Windows.Forms.ColumnHeader columnHeader12;
     }
 }

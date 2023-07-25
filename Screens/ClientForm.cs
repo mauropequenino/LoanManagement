@@ -116,7 +116,7 @@ namespace LoanManagement.Screens
             incomeTxtBox.Clear();
             phoneNumberTxtBox.Clear();
             emailTxtBox.Clear();
-            
+
         }
 
 
@@ -174,13 +174,14 @@ namespace LoanManagement.Screens
 
         private void removeBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Deseja remover o cliente ?", "Remover", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+            if (MessageBox.Show("Deseja remover este cliente ?", "Remover", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
             {
                 try
                 {
-                    /*
-                    if (usersListView.SelectedItems.Count > 0)
+
+                    if (clientListView.SelectedItems.Count > 0)
                     {
+                        var id = int.Parse(clientListView.SelectedItems[0].SubItems[0].Text);
                         var repo = new Repository<Client>(Database.Db.Conn);
                         var client = repo.Get(id);
 
@@ -190,9 +191,6 @@ namespace LoanManagement.Screens
                             LoadListView();
                         }
                     }
-                    */
-
-
                 }
                 catch (Exception ex)
                 {
