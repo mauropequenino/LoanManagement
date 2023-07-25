@@ -23,7 +23,31 @@ namespace LoanManagement.Screens
 
         private void LoadListView()
         {
-            ClearFields();
+
+            clientListView.View = View.Details;
+            clientListView.FullRowSelect = true;
+            clientListView.Items.Clear();
+
+            var repo = new Repository<Client>(Database.Db.Conn);
+            var clients = repo.Get();
+
+            foreach (var client in clients)
+            {
+                ListViewItem newItem = new ListViewItem(client.Id.ToString());
+                newItem.SubItems.Add(client.Name);
+                newItem.SubItems.Add(client.Bi);
+                newItem.SubItems.Add(client.Province);
+                newItem.SubItems.Add(client.Genre.ToString());
+                newItem.SubItems.Add(client.BirthDate.ToString());
+                newItem.SubItems.Add(client.Address);
+                newItem.SubItems.Add(client.Profession);
+                newItem.SubItems.Add(client.Income.ToString("F2"));
+                newItem.SubItems.Add(client.PhoneNumber);
+                newItem.SubItems.Add(client.Email);
+
+                clientListView.Items.Add(newItem);
+            }
+
         }
 
         private bool isFormValid()
@@ -92,9 +116,10 @@ namespace LoanManagement.Screens
             incomeTxtBox.Clear();
             phoneNumberTxtBox.Clear();
             emailTxtBox.Clear();
-            provinceCmb.Items.Clear();
-            genreCmb.Items.Clear();
+            
         }
+
+
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -109,7 +134,7 @@ namespace LoanManagement.Screens
                 var profession = professionTxtBox.Text;
                 var income = decimal.Parse(incomeTxtBox.Text.Trim());
                 var phoneNumber = phoneNumberTxtBox.Text.Trim();
-                var email = professionTxtBox.Text.Trim();
+                var email = emailTxtBox.Text.Trim();
 
                 Create(new Client
                 {
@@ -135,6 +160,8 @@ namespace LoanManagement.Screens
                 repo.Create(client);
 
                 LoadListView();
+
+                ClearFields();
 
                 MessageBox.Show("Registo efectuado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -169,12 +196,29 @@ namespace LoanManagement.Screens
                         }
                     }
                     */
+
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Ocorreu um erro ao remover o cliente. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+        }
+
+        private void clientListView_MouseClick(object sender, MouseEventArgs e)
+        {
+            idTxtBox.Text = clientListView.SelectedItems[0].SubItems[0].Text;
+            nameTxtBox.Text = clientListView.SelectedItems[0].SubItems[1].Text;
+            biTxtBox.Text = clientListView.SelectedItems[0].SubItems[2].Text;
+            provinceCmb.Items.Add(clientListView.SelectedItems[0].SubItems[3].Text);
+            genreCmb.Items.Add(clientListView.SelectedItems[0].SubItems[4].Text);
+            birthDatePicker.Value = DateTime.Parse(clientListView.SelectedItems[0].SubItems[5].Text);
+            addressTxtBox.Text = clientListView.SelectedItems[0].SubItems[6].Text;
+            professionTxtBox.Text = clientListView.SelectedItems[0].SubItems[7].Text;
+            incomeTxtBox.Text = clientListView.SelectedItems[0].SubItems[8].Text;
+            phoneNumberTxtBox.Text = clientListView.SelectedItems[0].SubItems[9].Text;
+            emailTxtBox.Text = clientListView.SelectedItems[0].SubItems[10].Text;
         }
     }
 

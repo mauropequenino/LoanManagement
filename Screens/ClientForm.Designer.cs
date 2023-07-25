@@ -58,7 +58,22 @@
             this.idTxtBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.addressTxtBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.clientListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader9 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader10 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -67,7 +82,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel2.Location = new System.Drawing.Point(34, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(16, 450);
+            this.panel2.Size = new System.Drawing.Size(16, 547);
             this.panel2.TabIndex = 5;
             // 
             // panel1
@@ -76,19 +91,15 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(34, 450);
+            this.panel1.Size = new System.Drawing.Size(34, 547);
             this.panel1.TabIndex = 4;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.incomeTxtBox);
-            this.groupBox1.Controls.Add(this.ClearBtn);
             this.groupBox1.Controls.Add(this.label10);
-            this.groupBox1.Controls.Add(this.SaveBtn);
             this.groupBox1.Controls.Add(this.professionTxtBox);
-            this.groupBox1.Controls.Add(this.EditBtn);
-            this.groupBox1.Controls.Add(this.removeBtn);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.birthDatePicker);
             this.groupBox1.Controls.Add(this.genreCmb);
@@ -108,10 +119,10 @@
             this.groupBox1.Controls.Add(this.idTxtBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.addressTxtBox);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(58, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(901, 256);
+            this.groupBox1.Size = new System.Drawing.Size(901, 154);
             this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados Pessoais";
@@ -136,7 +147,7 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(292, 198);
+            this.ClearBtn.Location = new System.Drawing.Point(288, 28);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(88, 30);
             this.ClearBtn.TabIndex = 11;
@@ -158,7 +169,7 @@
             // 
             this.SaveBtn.BackColor = System.Drawing.SystemColors.Control;
             this.SaveBtn.ForeColor = System.Drawing.Color.Black;
-            this.SaveBtn.Location = new System.Drawing.Point(15, 198);
+            this.SaveBtn.Location = new System.Drawing.Point(11, 28);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(86, 30);
             this.SaveBtn.TabIndex = 10;
@@ -180,7 +191,7 @@
             this.EditBtn.BackColor = System.Drawing.SystemColors.Control;
             this.EditBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.EditBtn.ForeColor = System.Drawing.Color.Black;
-            this.EditBtn.Location = new System.Drawing.Point(108, 198);
+            this.EditBtn.Location = new System.Drawing.Point(104, 28);
             this.EditBtn.Name = "EditBtn";
             this.EditBtn.Size = new System.Drawing.Size(86, 30);
             this.EditBtn.TabIndex = 12;
@@ -192,7 +203,7 @@
             this.removeBtn.BackColor = System.Drawing.SystemColors.Control;
             this.removeBtn.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.removeBtn.ForeColor = System.Drawing.Color.Black;
-            this.removeBtn.Location = new System.Drawing.Point(200, 198);
+            this.removeBtn.Location = new System.Drawing.Point(196, 28);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(86, 31);
             this.removeBtn.TabIndex = 13;
@@ -214,11 +225,12 @@
             // 
             this.birthDatePicker.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.birthDatePicker.Location = new System.Drawing.Point(296, 73);
-            this.birthDatePicker.MaxDate = new System.DateTime(2023, 12, 31, 0, 0, 0, 0);
+            this.birthDatePicker.MaxDate = new System.DateTime(2005, 12, 31, 0, 0, 0, 0);
             this.birthDatePicker.MinDate = new System.DateTime(1920, 1, 1, 0, 0, 0, 0);
             this.birthDatePicker.Name = "birthDatePicker";
-            this.birthDatePicker.Size = new System.Drawing.Size(126, 22);
+            this.birthDatePicker.Size = new System.Drawing.Size(126, 20);
             this.birthDatePicker.TabIndex = 26;
+            this.birthDatePicker.Value = new System.DateTime(2005, 2, 1, 0, 0, 0, 0);
             // 
             // genreCmb
             // 
@@ -228,8 +240,9 @@
             "F"});
             this.genreCmb.Location = new System.Drawing.Point(59, 73);
             this.genreCmb.Name = "genreCmb";
-            this.genreCmb.Size = new System.Drawing.Size(72, 24);
+            this.genreCmb.Size = new System.Drawing.Size(72, 21);
             this.genreCmb.TabIndex = 25;
+            this.genreCmb.Text = "Selecionar";
             // 
             // label9
             // 
@@ -303,8 +316,9 @@
             "Cabo Delgado"});
             this.provinceCmb.Location = new System.Drawing.Point(691, 29);
             this.provinceCmb.Name = "provinceCmb";
-            this.provinceCmb.Size = new System.Drawing.Size(146, 24);
+            this.provinceCmb.Size = new System.Drawing.Size(146, 21);
             this.provinceCmb.TabIndex = 19;
+            this.provinceCmb.Text = "Selecionar";
             // 
             // label5
             // 
@@ -389,11 +403,98 @@
             this.addressTxtBox.Size = new System.Drawing.Size(247, 24);
             this.addressTxtBox.TabIndex = 5;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.removeBtn);
+            this.groupBox2.Controls.Add(this.EditBtn);
+            this.groupBox2.Controls.Add(this.SaveBtn);
+            this.groupBox2.Controls.Add(this.ClearBtn);
+            this.groupBox2.Location = new System.Drawing.Point(58, 172);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(901, 79);
+            this.groupBox2.TabIndex = 14;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Interações";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.clientListView);
+            this.groupBox3.Location = new System.Drawing.Point(58, 258);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(901, 277);
+            this.groupBox3.TabIndex = 15;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Resultados";
+            // 
+            // clientListView
+            // 
+            this.clientListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7,
+            this.columnHeader8,
+            this.columnHeader9,
+            this.columnHeader10});
+            this.clientListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.clientListView.HideSelection = false;
+            this.clientListView.Location = new System.Drawing.Point(3, 16);
+            this.clientListView.Name = "clientListView";
+            this.clientListView.Size = new System.Drawing.Size(895, 258);
+            this.clientListView.TabIndex = 0;
+            this.clientListView.UseCompatibleStateImageBehavior = false;
+            this.clientListView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.clientListView_MouseClick);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Id";
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nome";
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Bi";
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Provincia";
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Sexo";
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Data de Nascimento";
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Endereço";
+            // 
+            // columnHeader8
+            // 
+            this.columnHeader8.Text = "Renda";
+            // 
+            // columnHeader9
+            // 
+            this.columnHeader9.Text = "Telefone";
+            // 
+            // columnHeader10
+            // 
+            this.columnHeader10.Text = "Email";
+            // 
             // ClientForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(969, 450);
+            this.ClientSize = new System.Drawing.Size(969, 547);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -401,6 +502,8 @@
             this.Text = "Gestão de Clientes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -437,5 +540,18 @@
         private System.Windows.Forms.TextBox professionTxtBox;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ListView clientListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader columnHeader9;
+        private System.Windows.Forms.ColumnHeader columnHeader10;
     }
 }
