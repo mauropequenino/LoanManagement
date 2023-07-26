@@ -15,7 +15,6 @@ namespace LoanManagement.Screens
     public partial class UserForm : Form
     {
         private int id;
-        private DateTime dateCreated;
         public UserForm()
         {
             InitializeComponent();
@@ -45,7 +44,7 @@ namespace LoanManagement.Screens
         {
             try
             {
-                var repo = new Repository<User>(Database.Db.Conn);
+                var repo = new UserRepository(Database.Db.Conn);
                 repo.Create(user);
 
                 LoadListView();
@@ -69,7 +68,7 @@ namespace LoanManagement.Screens
                 {
                     if (usersListView.SelectedItems.Count > 0)
                     {
-                        var repo = new Repository<User>(Database.Db.Conn);
+                        var repo = new UserRepository(Database.Db.Conn);
                         var user = repo.Get(id);
 
                         if (user != null)
@@ -91,12 +90,6 @@ namespace LoanManagement.Screens
             id = Convert.ToInt16(usersListView.SelectedItems[0].SubItems[0].Text);
             userNameTextBox.Text = usersListView.SelectedItems[0].SubItems[1].Text;
             passwordTextBox.Text = usersListView.SelectedItems[0].SubItems[2].Text;
-
-            /* 
-             * ! A base de dados está a retornar o erro [SqlDateTime Overflow] porque esta propriedade estava a ser ignora na actualização de um registo. Solução do momento foi receber o valor da data já registado e voltar a inserir na actualização.
-             * Procurar outra solução para corrigir.
-             */
-            dateCreated = DateTime.Parse(usersListView.SelectedItems[0].SubItems[3].Text);
         }
 
         private void EditBtn_Click(object sender, EventArgs e)
@@ -112,7 +105,6 @@ namespace LoanManagement.Screens
                     Id = id,
                     Name = userName,
                     Password = password,
-                    DateCreated = dateCreated,
                     DateModified = dateModified
                 });
             }
@@ -122,7 +114,7 @@ namespace LoanManagement.Screens
         {
             try
             {
-                var repo = new Repository<User>(Database.Db.Conn);
+                var repo = new UserRepository(Database.Db.Conn);
                 repo.Update(user);
 
                 LoadListView();
@@ -140,8 +132,8 @@ namespace LoanManagement.Screens
             usersListView.FullRowSelect = true;
             usersListView.Items.Clear();
 
-            var repo = new Repository<User>(Database.Db.Conn);
-            List<User> users = (List<User>)repo.Get();
+            var repo = new UserRepository(Database.Db.Conn);
+            var users = repo.Get();
 
             foreach (User user in users)
             {
@@ -179,6 +171,7 @@ namespace LoanManagement.Screens
 
             return true;
         }
+
         private void ClearFields()
         {
             userNameTextBox.Clear();
