@@ -23,12 +23,12 @@ namespace LoanManagement.Screens
 
         private void LoadListView()
         {
-
+            ClearFields();
             clientListView.View = View.Details;
             clientListView.FullRowSelect = true;
             clientListView.Items.Clear();
 
-            var repo = new Repository<Client>(Database.Db.Conn);
+            var repo = new ClientRepository(Database.Db.Conn);
             var clients = repo.Get();
 
             foreach (var client in clients)
@@ -116,10 +116,7 @@ namespace LoanManagement.Screens
             incomeTxtBox.Clear();
             phoneNumberTxtBox.Clear();
             emailTxtBox.Clear();
-
         }
-
-
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
@@ -156,7 +153,7 @@ namespace LoanManagement.Screens
         {
             try
             {
-                var repo = new Repository<Client>(Database.Db.Conn);
+                var repo = new ClientRepository(Database.Db.Conn);
                 repo.Create(client);
 
                 LoadListView();
@@ -182,7 +179,7 @@ namespace LoanManagement.Screens
                     if (clientListView.SelectedItems.Count > 0)
                     {
                         var id = int.Parse(clientListView.SelectedItems[0].SubItems[0].Text);
-                        var repo = new Repository<Client>(Database.Db.Conn);
+                        var repo = new ClientRepository(Database.Db.Conn);
                         var client = repo.Get(id);
 
                         if (client != null)
@@ -204,14 +201,64 @@ namespace LoanManagement.Screens
             idTxtBox.Text = clientListView.SelectedItems[0].SubItems[0].Text;
             nameTxtBox.Text = clientListView.SelectedItems[0].SubItems[1].Text;
             biTxtBox.Text = clientListView.SelectedItems[0].SubItems[2].Text;
-            provinceCmb.Items.Add(clientListView.SelectedItems[0].SubItems[3].Text);
-            genreCmb.Items.Add(clientListView.SelectedItems[0].SubItems[4].Text);
-            birthDatePicker.Value = DateTime.Parse(clientListView.SelectedItems[0].SubItems[5].Text);
             addressTxtBox.Text = clientListView.SelectedItems[0].SubItems[6].Text;
             professionTxtBox.Text = clientListView.SelectedItems[0].SubItems[7].Text;
             incomeTxtBox.Text = clientListView.SelectedItems[0].SubItems[8].Text;
             phoneNumberTxtBox.Text = clientListView.SelectedItems[0].SubItems[9].Text;
             emailTxtBox.Text = clientListView.SelectedItems[0].SubItems[10].Text;
+
+            provinceCmb.SelectedItem = clientListView.SelectedItems[0].SubItems[3].Text;
+            genreCmb.SelectedItem = clientListView.SelectedItems[0].SubItems[4].Text;
+
+            birthDatePicker.Value = DateTime.Parse(clientListView.SelectedItems[0].SubItems[5].Text);
+        }
+
+        private void EditBtn_Click(object sender, EventArgs e)
+        {
+            if (isFormValid())
+            {
+                var id = int.Parse(idTxtBox.Text);
+                var clientName = nameTxtBox.Text;
+                var bI = biTxtBox.Text;
+                var province = provinceCmb.SelectedItem.ToString();
+                var genre = char.Parse(genreCmb.SelectedItem.ToString());
+                var birthDate = DateTime.Parse(birthDatePicker.Value.ToString());
+                var address = addressTxtBox.Text;
+                var profession = professionTxtBox.Text;
+                var income = decimal.Parse(incomeTxtBox.Text.Trim());
+                var phoneNumber = phoneNumberTxtBox.Text.Trim();
+                var email = emailTxtBox.Text.Trim();
+
+                Update(new Client
+                {
+                    Id = id,
+                    Name = clientName,
+                    Bi = bI,
+                    Province = province,
+                    Address = address,
+                    BirthDate = birthDate,
+                    Genre = genre,
+                    Profession = profession,
+                    Income = income,
+                    PhoneNumber = phoneNumber,
+                    Email = email
+                });
+            }
+        }
+
+        private void Update(Client client)
+        {
+            try
+            {
+                var repo = new ClientRepository(Database.Db.Conn);
+                repo.Update(client);
+
+                LoadListView();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao registar o cliente. Detalhes do erro: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 
