@@ -32,6 +32,7 @@
             this.simulaçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UsersMenuStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.emprestimosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +41,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.simulaçãoToolStripMenuItem,
             this.UsersMenuStrip,
-            this.clientesToolStripMenuItem});
+            this.clientesToolStripMenuItem,
+            this.emprestimosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1221, 24);
@@ -68,6 +70,13 @@
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
+            // emprestimosToolStripMenuItem
+            // 
+            this.emprestimosToolStripMenuItem.Name = "emprestimosToolStripMenuItem";
+            this.emprestimosToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
+            this.emprestimosToolStripMenuItem.Text = "Emprestimos";
+            this.emprestimosToolStripMenuItem.Click += new System.EventHandler(this.emprestimosToolStripMenuItem_Click);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,7 +84,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BackgroundImage = global::LoanManagement.Properties.Resources.bg;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1221, 760);
+            this.ClientSize = new System.Drawing.Size(1221, 749);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Dashboard";
@@ -94,6 +103,7 @@
         private System.Windows.Forms.ToolStripMenuItem simulaçãoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UsersMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem emprestimosToolStripMenuItem;
     }
 }
 

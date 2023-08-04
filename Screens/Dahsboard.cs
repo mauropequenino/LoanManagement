@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LoanManagement.Screens;
+using LoanManagement.Screens.LoanForm;
 
 namespace LoanManagement
 {
@@ -31,6 +32,11 @@ namespace LoanManagement
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new ClientForm().ShowDialog();
+        }
+
+        private void emprestimosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Loan().ShowDialog();
         }
     }
 }
